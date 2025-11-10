@@ -10,9 +10,6 @@ use std::{
 use tauri::{App, Manager};
 use tauri::Emitter;
 use tracing::info;
-
- 
-// FIX ME!
 use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
 
 // const PATH: &str = "c:\\users\\mrs029\\desktop\\neurois\\src-tauri";

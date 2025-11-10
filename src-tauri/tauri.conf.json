@@ -17,8 +17,8 @@
         "title": "neurois",
         "width": 800,
         "height": 600,
-        "decorations": false,
-        "transparent": true
+        "transparent": true,
+        "decorations": false
       }
     ],
     "security": {

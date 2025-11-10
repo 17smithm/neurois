@@ -1,0 +1,8 @@
+["post_logbook", 1762722337001, null, 1234, 26220, "intermittent paused", "Leg Tremor", "event b overwrite", "event c write", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+["post_logbook_status", 1762750800000, 1762722337001, "intermittent paused"]
+["post_logbook", 1762722337002, null, 1235, 30810, "ambulatory active", "Different Leg tremor", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+["post_logbook_status", 1762750800000, 1762722337002, "ambulatory active"]
+["post_logbook", 1762722337003, null, 1234, 30810, "unmonitored active", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+["post_logbook_status", 1762750800000, 1762722337003, "unmonitored active"]
+["post_logbook", 1762722337004, null, 1235, 30810, "continuous active", "Leg Tremor", "Heart ache", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+["post_logbook_status", 1762750800000, 1762722337004, "continuous active"]
