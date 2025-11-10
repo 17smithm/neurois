@@ -1,185 +1,95 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
- 
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>NeuroIS</title>
-
   <link rel="stylesheet" href="/style.css">
-
   <script type="module" defer src="/main.js"></script>
-
   <script type="module" defer src="/apps.js"></script>
-
   <script type="module" defer src="/components/_general.js"></script>
-
   <script type="module" defer src="/components/dates-menu.js"></script>
-
   <script type="module" defer src="/components/float-head-btn.js"></script>
-
   <link rel="stylesheet" href="/logbook/style.css">
+  <link rel="stylesheet" href="/notes/style.css">
 
   <template id="apps">
-
     <app-btn class="app-btn" data-dir="/logbook/" data-app="logbook">
-
       <svg class="app-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor"
-
           d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5L7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z" />
-
       </svg>
-
       <div class="app-lbl">LTM Logbook</div>
-
     </app-btn>
-
-    <app-btn class="app-btn" data-dir="/monitor/" data-app="monitor">
-
+    <app-btn class="app-btn" data-dir="/notes/" data-app="notes">
       <svg class="app-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor"
-
           d="M4 18q-.825 0-1.413-.588T2 16V5q0-.825.588-1.413T4 3h16q.825 0 1.413.588T22 5v11q0 .825-.588 1.413T20 18h-3l.7.7q.15.15.225.338t.075.387V20q0 .425-.288.712T17 21H7q-.425 0-.713-.288T6 20v-.575q0-.2.075-.388T6.3 18.7L7 18H4Z" />
-
       </svg>
-
-      <div class="app-lbl">Patient Monitor</div>
-
+      <div class="app-lbl">Notes</div>
     </app-btn>
-
     <app-btn class="app-btn" data-dir="/tickets/" data-app="tickets">
-
       <svg class="app-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor"
-
           d="M21.005 3a1 1 0 0 1 1 1v5.5a2.5 2.5 0 0 0 0 5V20a1 1 0 0 1-1 1h-18a1 1 0 0 1-1-1v-5.5a2.5 2.5 0 0 0 0-5V4a1 1 0 0 1 1-1h18Z" />
-
       </svg>
-
       <div class="app-lbl">Tickets</div>
-
     </app-btn>
-
     <app-btn class="app-btn" data-dir="/reports/" data-app="reports">
-
       <svg class="app-img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-
         <path fill="currentColor" fill-rule="evenodd"
-
           d="M1.574.898a.75.75 0 0 0-1.5 0v12.204c0 .414.336.75.75.75h12.204a.75.75 0 1 0 0-1.5H1.573V.898Zm8.647 1.533a1 1 0 0 0-1.413.26L5.73 7.307L4.246 5.823A1 1 0 1 0 2.83 7.238l2.347 2.346a1 1 0 0 0 1.54-.152l3.181-4.773l2.446 1.747a1 1 0 0 0 1.162-1.628l-3.285-2.347Z"
-
           clip-rule="evenodd" />
-
       </svg>
-
       <div class="app-lbl">Reports</div>
-
     </app-btn>
-
   </template>
-
 </head>
 
- 
-
 <body>
-
   <div data-tauri-drag-region class="title">NeuroIS</div>
-
   <div data-tauri-drag-region class="titlebar">
-
     <div class="btn titlebar-btn" id="titlebar-minimize">
-
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor" d="M19 13H5v-2h14v2Z" />
-
       </svg>
-
     </div>
-
     <div class="btn titlebar-btn" id="titlebar-maximize">
-
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor"
-
           d="M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 2v14H5V5h14Z" />
-
       </svg>
-
     </div>
-
     <div class="btn titlebar-btn titlebar-close-btn" id="titlebar-close">
-
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
         <path fill="currentColor"
-
           d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" />
-
       </svg>
-
     </div>
-
   </div>
 
   <div class="app-bar">
-
     <div class="app-menu-btn-wrap">
-
       <app-menu-btn class="app-btn app-btn-menu" data-url="/" data-app="app-menu">
-
         <svg class="app-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-
             d="M4 4h2v2H4V4Zm0 14h2v2H4v-2ZM18 4h2v2h-2V4Zm0 7h2v2h-2v-2Zm-7 0h2v2h-2v-2Zm-7 0h2v2H4v-2Zm7-7h2v2h-2V4Zm0 14h2v2h-2v-2Zm7 0h2v2h-2v-2Z" />
-
         </svg>
-
         <div class="app-lbl">App Menu</div>
-
       </app-menu-btn>
-
     </div>
-
     <div class="app-bar-apps"></div>
-
   </div>
-
   <div class="app-menu">
-
     <h1 class="app-menu-head">NeuroIS</h1>
-
     <div class="app-menu-apps"></div>
-
     <div class="app-menu-active"></div>
-
     <div class="app-menu-foot">
-
       <div>Michael.Smith@nationwidechildrens.org</div>
-
       <div>Version 0.4.0</div>
-
     </div>
-
   </div>
-
   <div class="root"></div>
-
 </body>
-
- 
-
 </html>
