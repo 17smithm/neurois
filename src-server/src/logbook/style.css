@@ -1,0 +1,1560 @@
+/* --------- LOGBOOK ------------- */
+
+ 
+
+.logbook {
+
+  block-size: 100%;
+
+  display: flex;
+
+  user-select: none;
+
+}
+
+ 
+
+.ltm-fill {
+
+  flex: 1;
+
+}
+
+ 
+
+.ltm-fill::before {
+
+  display: block;
+
+  position: sticky;
+
+  top: 0;
+
+  content: "";
+
+  block-size: var(--head-block);
+
+  background: var(--frame-color);
+
+  border-bottom: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-fill-body {
+
+  block-size: var(--body-block);
+
+  background: var(--white-0);
+
+}
+
+ 
+
+.ltm-fill-log {
+
+  block-size: calc(var(--log-block) + 1px);
+
+  border-left: 1px solid var(--frame-color-border);
+
+  border-top: 1px solid var(--frame-color-border);
+
+  background: var(--frame-color);
+
+  position: sticky;
+
+  bottom: calc(var(--foot-block) - 1px);
+
+}
+
+ 
+
+.ltm-fill::after {
+
+  display: block;
+
+  position: sticky;
+
+  bottom: 0;
+
+  content: "";
+
+  block-size: calc(var(--foot-block) - 1px);
+
+  background: var(--frame-color);
+
+}
+
+ 
+
+.ltm-main {
+
+  --timeslots-inline: 200px;
+
+  --head-block: calc(var(--btn-line) * 2 + 1em + 1px);
+
+  --foot-block: calc(var(--btn-line) + 2px + var(--padding) * 2 + 1px);
+
+  /*  */
+
+  --log-buffer: 144px;
+
+  --body-block-min: 630px;
+
+  --body-block-max:  1152px;
+
+  /* ^ changing max breaks  */
+
+  --flex: 4;
+
+  --flex-buffer: clamp(0px, 100vh - var(--title-block) - var(--foot-block) - var(--sb-size) - var(--body-block-min), var(--log-buffer));
+
+  --flex-start: clamp(0px, 100vh - var(--title-block) - var(--foot-block) - var(--sb-size) - var(--body-block-min) - var(--log-buffer), var(--body-block-min));
+
+  --flex-end: max(0px, 100vh - var(--title-block) - var(--foot-block) - var(--sb-size) - var(--body-block-max) - var(--log-buffer));
+
+  /*  */
+
+  --body-block: calc(var(--flex-start) * (1 - 1 / var(--flex)) + var(--body-block-min) - var(--head-block));
+
+  --log-block: calc(var(--flex-buffer) + var(--flex-start) / var(--flex) + var(--flex-end));
+
+  --row-block: calc((var(--body-block)) / 12);
+
+  /* --body-inline-max:  */
+
+  --timer-btn-inline: 88px;
+
+  --progress-inline: 160px;
+
+  --progress-block: min(var(--row-block) * 0.65, calc(var(--btn-line) + 2px));
+
+  flex: 1 0 var(--timeslots-inline);
+
+  overflow: scroll;
+
+  position: relative;
+
+  display: flex;
+
+}
+
+ 
+
+.ltm-main::-webkit-scrollbar:vertical {
+
+  background: var(--frame-color);
+
+  border-inline-start: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-main::-webkit-scrollbar:horizontal {
+
+  background: var(--frame-color);
+
+  border-block-start: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-main::-webkit-scrollbar-corner {
+
+  background: var(--frame-color);
+
+}
+
+ 
+
+/* --------- LTM INDEX ------------- */
+
+ 
+
+.ltm-index {
+
+  flex: none;
+
+  inline-size: var(--timeslots-inline);
+
+  display: flex;
+
+  flex-direction: column;
+
+  position: sticky;
+
+  left: 0;
+
+  z-index: 100;
+
+}
+
+ 
+
+.ltm-index-body {
+
+  font-family: 'Inter';
+
+  font-weight: 400;
+
+  font-size: 15px;
+
+  flex: none;
+
+  block-size: var(--body-block);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  /* line-height: var(--progress-block); */
+
+  align-items: center;
+
+  background: var(--white-0);
+
+}
+
+ 
+
+.ltm-index-body > * {
+
+  block-size: var(--progress-block);
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+/* --------- LTM INDEX HEAD ------------- */
+
+ 
+
+.ltm-index-head {
+
+  z-index: 1;
+
+  background: var(--frame-color);
+
+  position: sticky;
+
+  inset: 0 auto auto;
+
+  padding: calc(var(--btn-line) + 1px) 0 calc(var(--padding) + 1px) calc(var(--padding) / 2);
+
+  display: flex;
+
+  justify-content: center;
+
+  border-bottom: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-index-head-float {
+
+  inline-size: var(--btn-inline);
+
+}
+
+ 
+
+.ltm-start-menu-date-float {
+
+  inline-size: var(--btn-inline);
+
+}
+
+ 
+
+.ltm-start-menu-time-float {
+
+  inline-size: var(--btn-inline);
+
+}
+
+
+
+
+
+
+/* --------- LTM TIMESLOTS FOOT ------------- */
+
+ 
+
+.ltm-index-foot {
+
+  z-index: 2;
+
+  flex: none;
+
+  position: sticky;
+
+  bottom: 0;
+
+  background: var(--frame-color);
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  border-top: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-index-foot::before {
+
+  align-self: end;
+
+  content: "";
+
+  display: block;
+
+  block-size: var(--log-block);
+
+  border-right: 1px solid var(--frame-color-border);
+
+}
+
+ 
+
+.ltm-tables-btn {
+
+  line-height: var(--btn-line);
+
+  inline-size: var(--btn-inline);
+
+  text-align: center;
+
+  margin: var(--padding) 0 var(--padding);
+
+}
+
+ 
+
+/* --------- LTM DATE ------------- */
+
+ 
+
+.ltm-date {
+
+  --columns: 0;
+
+  flex: none;
+
+  position: relative;
+
+}
+
+ 
+
+/* --------- LTM HEAD ------------- */
+
+ 
+
+.ltm-head-wrap {
+
+  font-weight: 600;
+
+  position: sticky;
+
+  inset: 0 auto auto;
+
+  background: var(--frame-color);
+
+  block-size: calc(var(--head-block) );
+
+  z-index: 1;
+
+  columns: var(--columns);
+
+  border-bottom: 1px solid var(--frame-color-border);
+
+  gap: 0;
+
+}
+
+ 
+
+.ltm-head {
+
+  padding-inline: calc(var(--padding) / 2);
+
+  display: grid;
+
+  grid-template-areas:
+
+    "ltm-timer ltm-timer"
+
+    "ltm-name ltm-timer-btn"
+
+    "ltm-mrn ltm-timer-btn";
+
+  grid-template-columns: 1fr auto;
+
+}
+
+ 
+
+.ltm-timer {
+
+  grid-area: ltm-timer;
+
+  text-align: center;
+
+  line-height: var(--btn-line);
+
+}
+
+ 
+
+.ltm-name::before:empty {
+
+  content: var(--non-breaking-space);
+
+}
+
+ 
+
+.ltm-name::after {
+
+  content: attr(data-name);
+
+}
+
+ 
+
+.ltm-name {
+
+  --name-inline-max: 250px;
+
+  grid-area: ltm-name;
+
+  margin: 0 auto auto 0;
+
+  text-overflow: ellipsis;
+
+  overflow: clip;
+
+  line-height: 1;
+
+  max-inline-size: var(--name-inline-max);
+
+}
+
+ 
+
+.ltm-mrn {
+
+  grid-area: ltm-mrn;
+
+  align-self: center;
+
+  line-height: var(--btn-line);
+
+}
+
+ 
+
+.ltm-timer-btn {
+
+  margin-top: 1px;
+
+  grid-area: ltm-timer-btn;
+
+  text-align: center;
+
+  inline-size: var(--timer-btn-inline);
+
+  overflow: hidden;
+
+  align-self: start;
+
+  border-color: var(--red-border);
+
+  background: var(--red);
+
+}
+
+ 
+
+.ltm-timer-btn:hover {
+
+  background-color: var(--red-hover);
+
+}
+
+ 
+
+.ltm-timer-btn::after {
+
+  line-height: var(--btn-line);
+
+  content: "Pause";
+
+}
+
+ 
+
+[data-status-timer="paused"].ltm-timer-btn::after {
+
+  content: "Resume";
+
+}
+
+ 
+
+[data-status-timer="paused"].ltm-timer-btn {
+
+  background: var(--yellow);
+
+  border-color: var(--yellow-border);
+
+}
+
+ 
+
+[data-status-timer="paused"].ltm-timer-btn:hover {
+
+  background-color: var(--yellow-hover);
+
+}
+
+ 
+
+/* --------- LTM BODY ------------- */
+
+ 
+
+.ltm-body-wrap {
+
+  position: absolute;
+
+  inset: var(--head-block) 0 auto;
+
+  block-size: var(--body-block);
+
+  display: flex;
+
+}
+
+ 
+
+.ltm-body {
+
+  font-family: 'Inter';
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  margin-inline-start: calc(var(--padding) / 2);
+
+  position: relative;
+
+}
+
+ 
+
+.ltm-sign-btn-wrap {
+
+  --slot: 0;
+
+  --top: calc( (100% - var(--progress-block) * 12) / 13 * (var(--slot) + 1) + var(--progress-block) / 2 - var(--btn-line) / 2 - 1px + var(--progress-block) * var(--slot) );
+
+  position: absolute;
+
+  inset: var(--top) 0 auto;
+
+  margin-inline: calc(var(--progress-inline) + var(--padding)) calc(var(--padding) / 2);
+
+  text-align: center;
+
+}
+
+ 
+
+.disabled.ltm-sign-btn-wrap {
+
+  display: none;
+
+}
+
+ 
+
+.btn.ltm-sign-btn {
+
+  line-height: var(--btn-line);
+
+  background: var(--blue);
+
+  border-color: var(--blue-border);
+
+  inline-size: var(--timer-btn-inline);
+
+  text-align: center;
+
+}
+
+ 
+
+.disabled.ltm-sign-btn {
+
+  display: none;
+
+}
+
+ 
+
+.btn.ltm-sign-btn:hover {
+
+  background-color: var(--blue-hover);
+
+}
+
+ 
+
+.ltm-progress {
+
+  inline-size: var(--progress-inline);
+
+  block-size: var(--progress-block);
+
+  border-radius: 1em;
+
+  position: relative;
+
+  overflow: clip;
+
+  background: var(--gray);
+
+  border: 1px solid var(--frame-color-border);
+
+  display: flex;
+
+}
+
+ 
+
+.ltm-progress-mask {
+
+  --inset-inline-start: auto;
+
+  background: var(--white);
+
+  z-index: 1;
+
+  position: absolute;
+
+  inset: 0 0 0 var(--inset-inline-start);
+
+}
+
+ 
+
+.complete.ltm-progress-mask {
+
+  background: transparent;
+
+}
+
+ 
+
+.ltm-progress-bar {
+
+  --inline-size: auto;
+
+  z-index: 0;
+
+  inline-size: var(--inline-size);
+
+}
+
+ 
+
+.ltm-progress-bar:last-child {
+
+  flex: 1;
+
+}
+
+ 
+
+.continuous.ltm-progress-bar {
+
+  background: var(--blue);
+
+}
+
+ 
+
+.intermittent.ltm-progress-bar {
+
+  background: var(--yellow);
+
+}
+
+ 
+
+.ambulatory.ltm-progress-bar {
+
+  background: var(--green);
+
+}
+
+ 
+
+.unmonitored.ltm-progress-bar {
+
+  background: var(--gray-0);
+
+}
+
+ 
+
+.paused.ltm-progress-bar {
+
+  background: var(--red);
+
+}
+
+ 
+
+.complete.ltm-progress-bar {
+
+  background: var(--gray);
+
+}
+
+ 
+
+/* --------- LTM TIMESLOT ------------- */
+
+ 
+
+.ltm-timeslot-wrap {
+
+  font-family: 'Inter';
+
+  font-weight: 400;
+
+  font-size: 15px;
+
+  background: var(--white-0);
+
+  block-size: var(--body-block);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+}
+
+ 
+
+.ltm-timeslot {
+
+  columns: var(--columns);
+
+  gap: 0;
+
+  line-height: var(--progress-block);
+
+}
+
+ 
+
+.ltm-timeslot:empty::before {
+
+  content: var(--non-breaking-space);
+
+}
+
+ 
+
+.ltm-sign:empty::before {
+
+  content: var(--non-breaking-space);
+
+}
+
+ 
+
+.ltm-sign {
+
+  margin-inline: calc(var(--progress-inline) + var(--padding) * 1.5) calc(var(--padding) / 2);
+
+  text-align: center;
+
+}
+
+ 
+
+/* --------- LTM LOGS ------------- */
+
+ 
+
+.ltm-log-wrap {
+
+  font-family: 'Inter';
+
+  font-weight: 400;
+
+  font-size: 15px;
+
+  block-size: var(--log-block);
+
+  display: flex;
+
+  background: var(--white-0);
+
+}
+
+ 
+
+.ltm-log {
+
+  flex: 1;
+
+  overflow: visible scroll;
+
+}
+
+ 
+
+.ltm-log-item {
+
+  display: flex;
+
+  gap: var(--padding);
+
+  justify-content: space-around;
+
+  line-height: 1.75;
+
+}
+
+ 
+
+.ltm-log-item::after {
+
+  content: attr(data-event);
+
+}
+
+ 
+
+/* --------- LTM FOOT ------------- */
+
+ 
+
+.ltm-foot-wrap {
+
+  position: sticky;
+
+  z-index: 1;
+
+  inset: auto auto 0;
+
+  border-top: 1px solid var(--frame-color-border);
+
+  padding: var(--padding) calc(var(--padding) / 2) var(--padding);
+
+  background: var(--frame-color);
+
+  display: flex;
+
+  gap: var(--padding);
+
+}
+
+ 
+
+.ltm-foot {
+
+  flex: 1;
+
+  z-index: 10;
+
+  display: flex;
+
+  justify-content: space-around;
+
+  gap: inherit;
+
+}
+
+ 
+
+.btn.ltm-complete-btn {
+
+  inline-size: var(--btn-inline);
+
+  line-height: var(--btn-line);
+
+  text-align: center;
+
+}
+
+ 
+
+.btn.ltm-events-btn {
+
+  cursor: pointer;
+
+}
+
+ 
+
+/* --------- EVENTS MENU ------------- */
+
+ 
+
+.active.ltm-events-menu {
+
+  max-block-size: 350px;
+
+}
+
+ 
+
+.active.ltm-techs-menu {
+
+  max-block-size: 350px;
+
+}
+
+ 
+
+.ltm-techs-item {
+
+  display: block;
+
+  max-inline-size: calc(250px - var(--padding) * 2);
+
+  overflow-x: clip;
+
+  text-overflow: ellipsis;
+
+}
+
+ 
+
+.ltm-events-menu {
+
+  inline-size: 100%;
+
+  overflow: visible scroll;
+
+  padding-inline: var(--padding) 0;
+
+}
+
+ 
+
+.ltm-techs-menu {
+
+  overflow: visible scroll;
+
+  padding-inline: var(--padding) 0;
+
+}
+
+ 
+
+.ltm-events-menu::before,
+
+.ltm-techs-menu:before {
+
+  content: "";
+
+  display: block;
+
+  margin-top: var(--padding);
+
+}
+
+ 
+
+.ltm-events-menu::after,
+
+.ltm-techs-menu::after {
+
+  content: "";
+
+  display: block;
+
+  margin-bottom: var(--padding);
+
+}
+
+ 
+
+.ltm-events-item {
+
+  font-weight: 600;
+
+}
+
+ 
+
+[data-description].ltm-events-item {
+
+  display: block;
+
+}
+
+ 
+
+/* --------- LTM BAR ------------- */
+
+ 
+
+.ltm-bar {
+
+  background: #888;
+
+}
+
+ 
+
+.ltm-bar.continuous {
+
+  background: #2ab7ca;
+
+}
+
+ 
+
+.ltm-bar.paused {
+
+  background: #fed766;
+
+}
+
+ 
+
+.ltm-bar.intermittent {
+
+  background: #ff6f69;
+
+}
+
+ 
+
+.ltm-bar:last-child {
+
+  flex: 1;
+
+}
+
+ 
+
+/* -------- LTM TBL --------- */
+
+ 
+
+.ltm-tbl-label {
+
+  font-weight: 600;
+
+  line-height: var(--btn-line);
+
+}
+
+ 
+
+.ltm-tbl {
+
+  --tbl-btn-inline: 60px;
+
+  --row-line: 30px;
+
+  --last-col-inline: 18ch;
+
+  --col-inline: calc((100% - var(--tbl-btn-inline) - var(--last-col-inline) - 14ch) );
+
+  font-family: 'Inter';
+
+  font-weight: 400;
+
+  font-size: 16px;
+
+  flex: 1;
+
+  border-radius: var(--frame-radius);
+
+  overflow: auto scroll;
+
+  background: var(--white-0);
+
+  padding: 0 0 0 var(--sb-size);
+
+  border: 1px solid var(--frame-color-border);
+
+  min-block-size: calc(var(--btn-line) + 2px + var(--padding));
+
+}
+
+ 
+
+.ltm-tbl-head {
+
+  font-weight: 600;
+
+  position: sticky;
+
+  inset: 0 auto auto;
+
+  background: var(--white-0);
+
+  display: grid;
+
+  align-items: center;
+
+  grid-template-columns: 14ch var(--col-inline) var(--last-col-inline) var(--tbl-btn-inline);
+
+  /* grid-auto-rows: var(--row-block); */
+
+  line-height: var(--btn-line);
+
+  border-bottom: 1px solid var(--frame-color-border);  
+
+}
+
+ 
+
+.ltm-tbl-body {
+
+  display: grid;
+
+  align-items: center;
+
+  /* padding-block: calc(var(--padding) / 2) 0; */
+
+  grid-template-columns: 14ch var(--col-inline) var(--last-col-inline) var(--tbl-btn-inline);
+
+}
+
+ 
+
+.ltm-btn.ltm-tbl-item {
+
+  inline-size: var(--tbl-btn-inline);
+
+  line-height: var(--btn-line);
+
+}
+
+ 
+
+.btn.ltm-show-btn,
+
+.btn.ltm-start-btn {
+
+  line-height: var(--row-line);
+
+  border-width: 1px;
+
+  text-align: center;
+
+  margin-block: calc(var(--padding) / 2);
+
+  margin-right: 2px;
+
+  background: white;
+
+}
+
+ 
+
+.ltm-show-btn:hover,
+
+.ltm-start-btn:hover {
+
+  border-color:var(--white-border-hover);
+
+}
+
+ 
+
+.ltm-show-btn::after {
+
+  content: "Hide";
+
+}
+
+ 
+
+.active.ltm-show-btn::after {
+
+  content: "Show";
+
+}
+
+ 
+
+.ltm-tbl-name {
+
+  text-overflow: ellipsis;
+
+  overflow: clip;
+
+}
+
+ 
+
+/* -------- LTM EVENT TBL --------- */
+
+ 
+
+.ltm-event-tbl {
+
+  --columns: 2;
+
+  flex: 1 1 0;
+
+  overflow: clip scroll;
+
+  gap: inherit;
+
+  background: white;
+
+  border-radius: var(--frame-radius);
+
+  padding: 0 0 0 var(--sb-size);
+
+  columns: var(--columns);
+
+  gap: var(--sb-size);
+
+  border: var(--border);
+
+  line-height: 1.5;
+
+  background: var(--white-0);
+
+}
+
+ 
+
+.ltm-event-tbl-col {
+
+  break-inside: avoid;
+
+  text-align: center;
+
+}
+
+ 
+
+.ltm-event-tbl-head {
+
+  position: sticky;
+
+  inset: 0 auto auto;
+
+  display: flex;
+
+  gap: var(--sb-size);
+
+  border-bottom: var(--border);
+
+  background: var(--white-0);
+
+  block-size: var(--head-block);
+
+  align-items: center;
+
+}
+
+ 
+
+.btn.ltm-event-tbl-btn {
+
+  flex: none;
+
+  margin-block: var(--sb-size);
+
+  block-size: var(--btn-line);
+
+  inline-size: var(--btn-line);
+
+  display: grid;
+
+  place-items: center;
+
+  border-width: 1px;
+
+  background: white;
+
+}
+
+ 
+
+.ltm-event-tbl-btn:hover {
+
+  border-color: var(--white-border-hover);
+
+}
+
+ 
+
+.ltm-event-tbl-description {
+
+  margin: 0 auto;
+
+  white-space: normal;
+
+}
+
+ 
+
+.ltm-event-tbl-description::after {
+
+  content: attr(data-description);
+
+}
+
+ 
+
+/* --------------------------- SIGN MENU ---------------------------- */
+
+ 
+
+.ltm-start-menu {
+
+  --line-height: 92px;
+
+  --row-spacing: calc((var(--line-height) - 1em ) / 2);
+
+  z-index: 5;
+
+  border-radius: var(--frame-radius);
+
+  background: var(--frame-color);
+
+  /* min-inline-size: 440px; */
+
+  align-items: center;
+
+  /* padding: 0 var(--padding) 0; */
+
+  box-shadow: var(--menu-shadow);
+
+}
+
+ 
+
+.ltm-start-menu-now {
+
+  flex: none;
+
+  block-size: 28px;
+
+  inline-size: 28px;
+
+  margin-inline: 14px;
+
+}
+
+ 
+
+.ltm-start-menu-body {
+
+  block-size: calc(1em * 6 + var(--row-spacing) * 7);
+
+}
+
+ 
+
+.ltm-sign-menu-body {
+
+  block-size: calc(1em * 7 + var(--row-spacing) * 8);
+
+}
+
+ 
+
+.ltm-sign-menu-btn {
+
+  inline-size: 180px;
+
+  line-height: var(--btn-line);
+
+  text-align: center;
+
+}
+
+ 
+
+.techs-head-lbl {
+
+  padding-inline: var(--padding);
+
+  text-align: center;
+
+  max-inline-size: 260px;
+
+}
+
+ 
+
+.ltm-techs {
+
+  /* set by signBtn onClick; */
+
+  --width: var(--btn-inline);
+
+  inline-size: calc(var(--width) + 42px);
+
+}
+
+ 
+
+/* ------------------- LTM SIDE -------------------------- */
+
+ 
+
+.hidden[data-study]:not(.ltm-tbl-item) {
+
+    display: none;
+
+}
+
+ 
+
+.ltm-side {
+
+  --side-min: 600px;
+
+  --side-max: 1300px;
+
+  --tbl-btn-inline: 42px;
+
+  flex: none;
+
+  display: flex;
+
+  /* flex-direction: column; */
+
+  transition: none var(--menu-slide);
+
+  visibility: hidden;
+
+  position: relative;
+
+  overflow: clip;
+
+  min-width: 0;
+
+  width: 0;
+
+  max-width: var(--side-max);
+
+  background: var(--frame-color);
+
+}
+
+ 
+
+.active.ltm-side {
+
+  visibility: visible;
+
+  transition-property: min-width;
+
+  min-width: var(--side-min);
+
+}
+
+ 
+
+.ltm-drag-btn {
+
+  --inline-size: 0.25em;
+
+  position: absolute;
+
+  background: rgba(58, 56, 56, 0.502);
+
+  border-radius: 1em;
+
+  inline-size: var(--inline-size);
+
+  inset-block: 45%;
+
+  block-size: 7em;
+
+  inset-inline-start: calc(var(--padding) - var(--inline-size) / 2 );
+
+}
+
+ 
+
+.ltm-drag-btn:hover {
+
+  cursor: ew-resize;
+
+}
+
+ 
+
+/* ------------ LTM TAB -------------- */
+
+ 
+
+.ltm-tab {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+ 
+
+    /* -------- LTM EVENT tab --------- */
+
+ 
+
+.ltm-tbl-tab {
+
+  flex: 1 0 var(--side-min);
+
+  padding: 0 calc(var(--sb-size) * 2) var(--padding) var(--sb-size);
+
+}
+
+ 
+
+.ltm-event-tab {
+
+  flex: 1 0 450px;
+
+  padding: 0 calc(var(--sb-size) * 2) var(--padding) 0;
+
+}

@@ -1,0 +1,771 @@
+<!--
+
+ 
+
+  menu-wrap needs aligned to sidebar as column with border-right --padding
+
+ 
+
+ -->
+
+ 
+
+<div class="menu-wrap">
+
+  <div class="menu ltm-sign-menu">
+
+    <div class="entry-head">Sign Timeslot</div>
+
+    <div class="entry-body ltm-sign-menu-body">
+
+      <div class="entry-body-row">
+
+        <div>Timeslot</div>
+
+        <textbox-btn data-name="ltm-sign-menu-timeslot" class="textbox"></textbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Patient</div>
+
+        <textbox-btn data-name="ltm-sign-menu-name" class="textbox"></textbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>MRN</div>
+
+        <textbox-btn data-name="ltm-sign-menu-mrn" class="textbox"></textbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>EEG Integrity and Quality</div>
+
+        <checkbox-btn class="checkbox-btn ltm-sign-menu-eeg">
+
+          <div class="active checkbox-btn-mark"></div>
+
+        </checkbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Video Integrity and Quality</div>
+
+        <checkbox-btn class="checkbox-btn ltm-sign-menu-video">
+
+          <div class="active checkbox-btn-mark"></div>
+
+        </checkbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Maintenance Needed</div>
+
+        <checkbox-btn class="checkbox-btn ltm-sign-menu-maint">
+
+          <div class="checkbox-btn-mark"></div>
+
+        </checkbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Technican</div>
+
+        <div class="float ltm-techs">
+
+          <div class="float-head techs-head">
+
+            <div contenteditable data-data="Technician Name" data-name="ltm-sign-menu-tech" class="float-head-lbl ltm-techs-head-lbl">Technician Name</div>
+
+            <float-head-btn class="btn blue float-head-btn">
+
+              <svg class="float-head-btn-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                viewBox="0 0 24 24">
+
+                <path fill="currentColor"
+
+                  d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z" />
+
+              </svg>
+
+            </float-head-btn>
+
+          </div>
+
+          <div class="float-menu-wrap ltm-techs-menu-wrap">
+
+            <div class="float-menu ltm-techs-menu">
+
+              <div data-tech="Technican One" class="ltm-techs-menu-item">Technician One</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="entry-foot">
+
+      <ltm-sign-menu-btn class="btn green ltm-sign-menu-btn">Sign</ltm-sign-menu-btn>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+<div class="menu-wrap">
+
+  <div class="menu ltm-start-menu">
+
+ 
+
+    <div data-name="ltm-start-menu-head-dt" class="entry-head">Start Patient</div>
+
+    <div class="entry-body ltm-start-menu-body">
+
+      <div class="entry-body-row">
+
+        <div>Patient</div>
+
+        <textbox-btn data-name="ltm-start-menu-name" data-data="Michael Smith" class="textbox"></textbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>MRN</div>
+
+        <textbox-btn data-name="ltm-start-menu-mrn" data-data="1234" class="textbox"></textbox-btn>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Status</div>
+
+        <div class="float ltm-statuses">
+
+          <div class="float-head ltm-statuses-head">
+
+            <div data-lbl="Continuous" class="float-head-lbl ltm-statuses-head-lbl">Continuous</div>
+
+            <float-head-btn class="btn blue float-head-btn">
+
+              <svg class="float-head-btn-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                viewBox="0 0 24 24">
+
+                <path fill="currentColor"
+
+                  d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z" />
+
+              </svg>
+
+            </float-head-btn>
+
+          </div>
+
+          <div class="float-menu-wrap ltm-techs-menu-wrap">
+
+            <div class="float-menu ltm-techs-menu">
+
+              <div data-status="Continuous" class="ltm-statuses-menu-item">Continuous</div>
+
+              <div data-status="Ambulatory" class="ltm-statuses-menu-item">Ambulatory</div>
+
+              <div data-status="Unmonitored" class="ltm-statuses-menu-item">Unmonitored</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>      
+
+      <div class="entry-body-row">
+
+        <div>Date</div>
+
+        <div class="float ltm-start-menu-date-float">
+
+          <div class="float-head">
+
+            <div class="float-head-lbl dates-head-lbl"></div>
+
+            <float-head-btn class="btn blue float-head-btn">
+
+              <svg class="float-head-btn-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                viewBox="0 0 24 24">
+
+                <path fill="currentColor"
+
+                  d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z" />
+
+              </svg>
+
+            </float-head-btn>
+
+          </div>
+
+          <div class="float-menu-wrap">
+
+            <dates-menu class="float-menu dates-menu">
+
+              <div class="dates-menu-head">
+
+                <dates-menu-head-btn data-arrow="left" class="btn dates-menu-head-btn">
+
+                  <svg class="dates-menu-head-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                    viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+
+                    <path fill="currentColor"
+
+                      d="m4.431 12.822l13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z" />
+
+                  </svg>
+
+                </dates-menu-head-btn>
+
+                <div class="dates-menu-head-item"></div>
+
+                <dates-menu-head-btn data-arrow="right" class="btn dates-menu-head-btn">
+
+                  <svg class="dates-menu-head-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                    viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+
+                    <path fill="currentColor"
+
+                      d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
+
+                  </svg>
+
+                </dates-menu-head-btn>
+
+              </div>
+
+              <div class="dates-menu-lbls">
+
+                <div>Su</div>
+
+                <div>Mo</div>
+
+                <div>Tu</div>
+
+                <div>We</div>
+
+                <div>Th</div>
+
+                <div>Fr</div>
+
+                <div>Sa</div>
+
+              </div>
+
+              <div class="dates-menu-body"></div>
+
+            </dates-menu>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Time</div>
+
+        <!-- inline-size -->
+
+        <div class="float">
+
+          <!-- javascript class -->
+
+            <div class="float-head">
+
+              <!-- javascript class -->
+
+              <!-- named data as text content -->
+
+              <ltm-start-menu-textbox-time data-name="ltm-start-menu-time" contenteditable class="textbox float-head-lbl"></ltm-start-menu-textbox-time>
+
+              <float-head-btn class="btn blue float-head-btn">
+
+              <svg class="float-head-btn-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                viewBox="0 0 24 24">
+
+                <path fill="currentColor"
+
+                d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z" />
+
+              </svg>
+
+              </float-head-btn>
+
+            </div>
+
+            <!-- javascript class -->
+
+            <!-- block-size -->
+
+            <div class="float-menu-wrap">
+
+              <!-- max-block-size -->
+
+              <!-- border-radius ?? -->
+
+              <time-menu class="float-menu time-menu">
+
+                <div class="time-menu-body">
+
+                  <!-- another wrap here for img -->
+
+                  <div class="time-menu-canvas">
+
+                    <canvas width="141.5" height="324"></canvas>
+
+                  </div>
+
+                  <div class="time-menu-wrapper">
+
+                    <!-- set data-data from  -->
+
+                    <div data-name="ltm-start-menu-hour" class="time-menu-counter"></div>
+
+                    <div data-name="ltm-start-menu-minute" class="time-menu-counter"></div>
+
+                    <div data-name="ltm-start-menu-second" class="time-menu-counter"></div>
+
+                  </div>
+
+                  <div class="time-menu-col time-menu-col-hour">
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                  </div>
+
+                  <div class="time-menu-col time-menu-col-minute">
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                  </div>
+
+                  <div class="time-menu-col time-menu-col-second">
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                    <div data-name="" class="time-menu-tick"></div>
+
+                  </div>
+
+                </div>
+
+                <div class="time-menu-foot">
+
+                  <div data-label="H" class="time-menu-foot-label"></div>
+
+                  <div data-label="M" class="time-menu-foot-label"></div>
+
+                  <div data-label="S" class="time-menu-foot-label"></div>
+
+                </div>
+
+              </time-menu>
+
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="entry-body-row">
+
+        <div>Now</div>
+
+        <checkbox-btn class="checkbox-btn">
+
+          <div class="active checkbox-btn-mark"></div>
+
+        </checkbox-btn>
+
+      </div>
+
+    </div>
+
+    <div class="entry-foot">
+
+      <ltm-sign-menu-btn class="btn green ltm-sign-menu-btn">Sign</ltm-sign-menu-btn>
+
+    </div>
+
+ 
+
+  </div>
+
+</div>
+
+ 
+
+<div class="ltm-main">
+
+  <div class="ltm-index">
+
+    <div class="ltm-index-head">
+
+      <div class="float ltm-index-head-float">
+
+        <div class="float-head">
+
+          <ltm-index-textbox-date contenteditable data-name="ltm-index-textbox-date" class="textbox float-head-lbl dates-head-lbl"></ltm-index-textbox-date>
+
+          <float-head-btn class="btn blue float-head-btn">
+
+            <svg class="float-head-btn-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+              viewBox="0 0 24 24">
+
+              <path data-name="ltm-index-head-chevron" data-data="down" fill="currentColor"/>
+
+            </svg>
+
+          </float-head-btn>
+
+        </div>
+
+        <div class="float-menu-wrap">
+
+          <dates-menu class="float-menu dates-menu">
+
+            <div class="dates-menu-head">
+
+              <dates-menu-head-btn data-arrow="left" class="btn dates-menu-head-btn">
+
+                <svg class="dates-menu-head-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                  viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+
+                  <path fill="currentColor"
+
+                    d="m4.431 12.822l13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z" />
+
+                </svg>
+
+              </dates-menu-head-btn>
+
+              <div class="dates-menu-head-item"></div>
+
+              <dates-menu-head-btn data-arrow="right" class="btn dates-menu-head-btn">
+
+                <svg class="dates-menu-head-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+
+                  viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+
+                  <path fill="currentColor"
+
+                    d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
+
+                </svg>
+
+              </dates-menu-head-btn>
+
+            </div>
+
+            <div class="dates-menu-lbls">
+
+              <div>Su</div>
+
+              <div>Mo</div>
+
+              <div>Tu</div>
+
+              <div>We</div>
+
+              <div>Th</div>
+
+              <div>Fr</div>
+
+              <div>Sa</div>
+
+            </div>
+
+            <div class="dates-menu-body"></div>
+
+          </dates-menu>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="ltm-index-body">
+
+      <div>00:00 - 02:00</div>
+
+      <div>02:00 - 04:00</div>
+
+      <div>04:00 - 06:00</div>
+
+      <div>06:00 - 08:00</div>
+
+      <div>08:00 - 10:00</div>
+
+      <div>10:00 - 12:00</div>
+
+      <div>12:00 - 14:00</div>
+
+      <div>14:00 - 16:00</div>
+
+      <div>16:00 - 18:00</div>
+
+      <div>18:00 - 20:00</div>
+
+      <div>20:00 - 22:00</div>
+
+      <div>22:00 - 00:00</div>
+
+    </div>
+
+    <div class="ltm-index-foot">
+
+      <ltm-tables-btn class="btn blue ltm-tables-btn">Tables</ltm-tables-btn>
+
+      </appv>
+
+    </div>
+
+  </div>
+
+  <div class="ltm-date">
+
+    <div class="ltm-head-wrap"></div>
+
+    <div class="ltm-body-wrap"></div>
+
+    <div class="ltm-timeslot-wrap">
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+      <div class="ltm-timeslot"></div>
+
+    </div>
+
+    <div class="ltm-log-wrap"></div>
+
+    <div class="ltm-foot-wrap"></div>
+
+  </div>
+
+  <div class="ltm-fill">
+
+    <div class="ltm-fill-body"></div>
+
+    <div class="ltm-fill-log"></div>
+
+  </div>
+
+</div>
+
+<div class="ltm-side">
+
+  <ltm-drag-btn class="ltm-drag-btn"></ltm-drag-btn>
+
+  <div class="ltm-tab ltm-tbl-tab">
+
+    <div class="ltm-tbl-label">Summary</div>
+
+    <div class="ltm-tbl">
+
+      <div class="ltm-tbl-head">
+
+        <div>MRN</div>
+
+        <div>Name</div>
+
+        <div>Timer</div>
+
+      </div>
+
+      <div class="ltm-tbl-body ltm-summary"></div>
+
+    </div>
+
+    <div class="ltm-tbl-label">Queue</div>
+
+    <div class="ltm-tbl">
+
+      <div class="ltm-tbl-head">
+
+        <div>MRN</div>
+
+        <div>Name</div>
+
+        <div>Arrived</div>
+
+      </div>
+
+      <div class="ltm-tbl-body ltm-queue"></div>
+
+    </div>
+
+    <div class="ltm-tbl-label">Machines</div>
+
+    <div class="ltm-tbl">
+
+      <div class="ltm-tbl-head">
+
+        <div>Machine</div>
+
+        <div>Room</div>
+
+        <div>Status</div>
+
+      </div>
+
+      <div class="ltm-tbl-body ltm-machines"></div>
+
+    </div>
+
+  </div>
+
+  <div class="ltm-tab ltm-event-tab">
+
+    <div class="ltm-tbl-label">Events</div>
+
+    <div style="columns: 2;" class="ltm-event-tbl">
+
+      <div class="ltm-event-tbl-col">
+
+        <div class="ltm-event-tbl-head">
+
+          <div class="btn ltm-event-tbl-btn">A</div>
+
+          <div data-event="A" data-description="Foot and thigh tremor" class="ltm-event-tbl-description"></div>
+
+        </div>
+
+        <div>0000-00-00 00:00:00</div>
+
+      </div>
+
+      <div class="ltm-event-tbl-col"></div>
+
+    </div>
+
+  </div>
+
+</div>

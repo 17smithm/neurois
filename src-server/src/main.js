@@ -1,0 +1,46 @@
+// import { appWindow } from '/modules/@tauri-apps/api/window.js';
+import { getCurrentWindow } from "/modules/@tauri-apps/api/window.js";
+
+
+import { listen, once } from '/modules/@tauri-apps/api/event.js';
+
+ 
+
+// app btns must await startup event
+
+// rust files sync could conclude before startup listened ??
+
+once('startup', () => {
+
+  document.querySelectorAll('.app-btn').forEach(btn => btn.classList.add('disabled'));
+
+  console.log('startup finished!');
+
+})
+
+ 
+
+export function main() {
+
+  document.querySelector('.app-bar-apps').textContent = '';
+
+  document.querySelector('.app-menu-apps').textContent = '';
+
+  document.querySelector('.root').textContent = '';
+
+  document.querySelector('.app-bar-apps').append(document.querySelector('#apps').content.cloneNode(true));
+
+  document.querySelector('.app-menu-apps').append(document.querySelector('#apps').content.cloneNode(true));
+
+};
+
+ 
+const window = getCurrentWindow();
+
+document.getElementById('titlebar-minimize').addEventListener('click', window.minimize);
+
+document.getElementById('titlebar-maximize').addEventListener('click', window.toggleMaximize);
+
+document.getElementById('titlebar-close').addEventListener('click', window.close);
+
+document.addEventListener('DOMContentLoaded', main);
