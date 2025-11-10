@@ -5,25 +5,21 @@
 in .
 npm install
 
+set up postgresql server
+
 move relevant node_modules to src-server/src/modules
 
 in src-server/src
 py -m http.server 7999
 
 in src-server
+pip install psycopg2
+  use venv???
 py main.py
 
 in .
 npm run tauri dev
 
-## Packages
-### Rust
-- tauri
-
-### Javascript
-
-### Python
-- psycopg2
 
 ## Misc.
 ```

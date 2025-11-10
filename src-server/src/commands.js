@@ -1,8 +1,7 @@
 import { listen, once } from '/modules/@tauri-apps/api/event.js';
-
-import { invoke } from '/modules/@tauri-apps/api/tauri.js';
-
-import { appWindow } from '/modules/@tauri-apps/api/window.js';
+import { invoke } from '/modules/@tauri-apps/api/core.js';
+//import { appWindow } from '/modules/@tauri-apps/api/window.js';
+import { getCurrentWindow } from "/modules/@tauri-apps/api/window.js";
 
  
 

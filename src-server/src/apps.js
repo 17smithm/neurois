@@ -1,7 +1,5 @@
 import * as cmd from '/commands.js';
-
-import { invoke } from '/modules/@tauri-apps/api/tauri.js';
-
+import { invoke } from '/modules/@tauri-apps/api/core.js';
 import { listen, once } from '/modules/@tauri-apps/api/event.js';
 
  
