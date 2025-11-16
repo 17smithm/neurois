@@ -42,3 +42,5 @@
 ["post_logbook_event", 1763298445117, 1762722337004, 0]
 ["post_logbook_event", 1763298475918, 1762722337004, 1]
 ["post_logbook_event", 1763299129919, 1762722337004, 1]
+["post_logbook_status", 1763299526891, 1762722337001, "intermittent paused"]
+["post_logbook_status", 1763299531205, 1762722337001, "intermittent active"]

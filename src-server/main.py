@@ -13,7 +13,6 @@ import psycopg2
 import utils
 import timers
 import files
-import calls
 from logbook import calls as logbook
 from notes import calls as notes
 
@@ -24,13 +23,6 @@ MILLI = 1000
 ADDRESS = ('localhost', 8001)
 
 CALLS = {
-    # global EW EW
-    'patient': calls.patient,
-    'post_patient': calls.post_patient,
-    'technician': calls.technician,
-    'post_technician': calls.post_technician,
-    'post_technician__del': calls.post_technician__del,
-    'post_study_queue': calls.post_study_queue,
     # logbook
     "logbook": logbook.logbook,
     'post_logbook': logbook.post_logbook,
@@ -39,6 +31,12 @@ CALLS = {
     'post_logbook_signature': logbook.post_logbook_signature,
     'post_logbook_status': logbook.post_logbook_status,
     'post_logbook_event': logbook.post_logbook_event,
+    'patient': logbook.patient,
+    'post_patient': logbook.post_patient,
+    'technician': logbook.technician,
+    'post_technician': logbook.post_technician,
+    'post_technician__del': logbook.post_technician__del,
+    'post_study_queue': logbook.post_study_queue,
     # notes
     'notes': notes.notes,
     'post_notes': notes.post_notes,
