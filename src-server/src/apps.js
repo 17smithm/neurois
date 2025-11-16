@@ -1,6 +1,6 @@
 import * as cmd from '/commands.js';
-import { invoke } from '/modules/@tauri-apps/api/core.js';
-import { listen, once } from '/modules/@tauri-apps/api/event.js';
+import { invoke } from '/node-modules/@tauri-apps/api/core.js';
+import { listen, once } from '/node-modules/@tauri-apps/api/event.js';
 
  
 // listen('app_reset', e => {

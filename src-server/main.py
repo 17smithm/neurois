@@ -22,6 +22,10 @@ PATH = Path(DIR)
 MILLI = 1000
 ADDRESS = ('localhost', 8001)
 
+# if any data returned from CALLS, DB call event is sent back to js
+# if calls use send_files(), then file call event in js can be called
+#   if user registers the file
+
 CALLS = {
     # logbook
     "logbook": logbook.logbook,
@@ -38,8 +42,9 @@ CALLS = {
     'post_technician__del': logbook.post_technician__del,
     'post_study_queue': logbook.post_study_queue,
     # notes
-    'notes': notes.notes,
     'post_notes': notes.post_notes,
+    'post_notes_text': notes.post_notes_text,
+    'del_notes': notes.del_notes
 }
 
 # need to close all connections on restart
@@ -122,8 +127,8 @@ def file_startup(cursor):
     # fix me!! should happen auto and elsewhere
     os.mkdir('data/logbook')
 
-    calls.refresh_study_queue(cursor, send_files)
-    calls.refresh_technician(cursor, send_files)
+    logbook.refresh_study_queue(cursor, send_files)
+    logbook.refresh_technician(cursor, send_files)
     logbook.refresh_logbook(cursor, send_files)
     notes.refresh_notes(cursor, send_files)
 

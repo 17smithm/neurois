@@ -1,6 +1,6 @@
 // import { appWindow } from '/modules/@tauri-apps/api/window.js';
-import { getCurrentWindow } from "/modules/@tauri-apps/api/window.js";
-import { listen, once } from '/modules/@tauri-apps/api/event.js';
+import { getCurrentWindow } from "/node-modules/@tauri-apps/api/window.js";
+import { listen, once } from '/node-modules/@tauri-apps/api/event.js';
 
 // app btns must await startup event
 // rust files sync could conclude before startup listened ??

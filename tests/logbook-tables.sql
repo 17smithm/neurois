@@ -10,14 +10,14 @@ DROP TABLE patient;
 --  
 CREATE TABLE patient (
     mrn BIGINT PRIMARY KEY,
-    first_name VARCHAR(40) NOT NULL,
-    last_name VARCHAR(40) NOT NULL
+    first_name VARCHAR(60) NOT NULL,
+    last_name VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE technician (
     tech BIGINT PRIMARY KEY NOT NULL,
-    first_name VARCHAR(40) NOT NULL,
-    last_name VARCHAR(40) NOT NULL,
+    first_name VARCHAR(60) NOT NULL,
+    last_name VARCHAR(60) NOT NULL,
     del BIGINT
 );
 

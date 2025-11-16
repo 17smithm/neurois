@@ -1,7 +1,4 @@
 import utils
-
-import calls
-
 import os
 
  
@@ -81,7 +78,7 @@ def post_logbook(cursor, send_files, args, row):
 
     cursor.execute("UPDATE study_queue SET logbook_study = %s WHERE queue = %s;", (row[1], row[0]))
 
-    calls.refresh_study_queue(cursor, send_files)
+    refresh_study_queue(cursor, send_files)
 
     send_files(
 

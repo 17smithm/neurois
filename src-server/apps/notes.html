@@ -1,12 +1,20 @@
 
 <div class="notes-main">
   <div class="notes-sidebar">
-    
+    <div class="notes-sidebar-head">
+      <div class="notes-sidebar-head-lbl">Notes</div>
+      <notes-add-btn class="btn blue notes-add-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2"/></svg>
+      </notes-add-btn>
+    </div>
   </div>
   <div class="notes-containers">
     <div class="notes-input-container">
       <textarea is="notes-input" class="notes-input"></textarea>
     </div>
-    <div class="notes-output-container"></div>
+    <notes-drag-btn class="notes-drag-btn"></notes-drag-btn>
+    <div class="notes-output-container">
+      <div class="notes-output"></div>
+    </div>
   </div>
 </div>
