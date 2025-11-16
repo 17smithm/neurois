@@ -45,6 +45,9 @@ def writer(recv_files) -> None:
             return
         with open(file_path, mode + 'b') as f:
             f.write(data)
+
+        # check if file not added to FILES ?
+        FILES[file_path].last_mtime = FILES[file_path].mtime
         broadcast(mode, file_path, data)
 
 class App:
@@ -105,7 +108,7 @@ class File:
         return os.path.getmtime(self.file_path)        
 
 def broadcast(mode, file_path, data):
-    for addr in ADDRS.values():
+    for addr in ADDRS.values():        
         addr.send_msg(mode, file_path, data)
 
 def manager():

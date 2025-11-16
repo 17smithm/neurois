@@ -82,8 +82,9 @@ export async function asyncRegisterFile(path, reset) {
   if (LISTENERS.has(call_cmd))
     return;
 
-  LISTENERS.set(call_cmd, await listen(call_cmd, _ => reset()));
-  LISTENERS.set(reset_cmd, await listen(reset_cmd, e => fileCall(e.payload)));
+  console.log('file being registered')  
+  LISTENERS.set(call_cmd, await listen(call_cmd, e => fileCall(e.payload)));
+  LISTENERS.set(reset_cmd, await listen(reset_cmd, _ => reset()));
   fileCall(await invoke('read_file', { path: path }));
 }
 

@@ -15,6 +15,7 @@ import timers
 import files
 import calls
 from logbook import calls as logbook
+from notes import calls as notes
 
 DB_ADDRESS = "dbname='postgres' host='localhost' port='8000' user='postgres' password='n3ur01S'"
 DIR = 'c:/users/mrs029/desktop/neurois/data'
@@ -23,14 +24,14 @@ MILLI = 1000
 ADDRESS = ('localhost', 8001)
 
 CALLS = {
+    # global EW EW
     'patient': calls.patient,
     'post_patient': calls.post_patient,
     'technician': calls.technician,
     'post_technician': calls.post_technician,
     'post_technician__del': calls.post_technician__del,
     'post_study_queue': calls.post_study_queue,
-
-    #
+    # logbook
     "logbook": logbook.logbook,
     'post_logbook': logbook.post_logbook,
     'post_logbook__event': logbook.post_logbook__event,
@@ -38,6 +39,9 @@ CALLS = {
     'post_logbook_signature': logbook.post_logbook_signature,
     'post_logbook_status': logbook.post_logbook_status,
     'post_logbook_event': logbook.post_logbook_event,
+    # notes
+    'notes': notes.notes,
+    'post_notes': notes.post_notes,
 }
 
 # need to close all connections on restart
@@ -117,10 +121,13 @@ def file_startup(cursor):
         shutil.rmtree('data')
 
     os.mkdir('data')
+    # fix me!! should happen auto and elsewhere
     os.mkdir('data/logbook')
+
     calls.refresh_study_queue(cursor, send_files)
     calls.refresh_technician(cursor, send_files)
     logbook.refresh_logbook(cursor, send_files)
+    notes.refresh_notes(cursor, send_files)
 
 def main():
     db = psycopg2.connect(DB_ADDRESS)

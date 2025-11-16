@@ -1,2 +1,37 @@
 
+.notes-main {
+    display: flex;
+    height: 100%;
+}
 
+.notes-sidebar {
+    width: 200px;
+    background: lightslategray;
+}
+
+.notes-file {
+  display: block;
+}
+
+.notes-containers {
+    flex: 1;
+    display: flex;
+}
+ 
+.notes-input-container {
+    flex-basis: 50%;
+    background: lightblue;
+}
+
+.notes-input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    padding: var(--padding);
+}
+
+.notes-output-container {
+    flex-basis: 50%;
+    background: lightpink;
+    padding: var(--padding);
+}

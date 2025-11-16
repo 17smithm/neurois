@@ -64,18 +64,26 @@ fn main() {
                    .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
             }
 
+            
             thread::spawn(move || {
                 //let window = handle.get_webview_window("main").unwrap();
                 loop {
+                    println!("in event spawn thread");
                     let event: String = event_rx.recv().unwrap();
                     let msg: String = event_rx.recv().unwrap();
+                    println!("event {}", event);
+                    println!("msg {}", msg);
                     window.emit(&event, &msg).unwrap();
                 }
             });
 
+
+            // file calls stream
             tauri::async_runtime::spawn(async move {
                 loop {
-                    let mut stream = match TcpStream::connect("localhost:8002") {
+
+                    // open stream and use walk.py to 
+                    let mut stream: TcpStream = match TcpStream::connect("localhost:8002") {
                         Ok(mut stream) => {
                             let path_buf: PathBuf = std::env::current_dir().unwrap();
                             let walk = Command::new("py")
@@ -126,6 +134,7 @@ fn main() {
 
                         let path_format = path.replace("\\", "_").replace("/", "_");
                         info!("mode {:?} \tpath {}", &head_buf[0], &path);
+                        // println!("received event", );
 
                         match &head_buf[0] {
                             &STARTUP => {
@@ -159,7 +168,7 @@ fn main() {
 
                                 if path.starts_with("apps") {
                                     break;
-                                } else if !path.starts_with("data") {
+                                } else if path.starts_with("data") {
                                     fs::OpenOptions::new()
                                         .append(true)
                                         .open(path)
@@ -224,6 +233,7 @@ fn main() {
                 }
             });
 
+            // db calls stream
             tauri::async_runtime::spawn(async move {
                 loop {
                     let mut stream = match TcpStream::connect("localhost:8001") {
@@ -319,7 +329,7 @@ fn is_file(filename: String, _: tauri::State<'_, State>) -> String {
     } else {
         String::from("0")
     }
-} 
+}
 
 #[tauri::command]
 fn get_cwd(_: tauri::State<'_, State>) -> String {
