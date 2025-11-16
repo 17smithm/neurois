@@ -143,15 +143,16 @@ def handler(conn, addr):
         handle_files(address, path, filenames, mtimes)
 
     address.send_msg_stub('0', '0')
+
+    # literally just pauses thread to do nothing...
     while True:
-        data = conn.recv(1)
-        if not data:
+        try:
+            data = conn.recv(1)
+            if not data:
+                break
+        except ConnectionResetError:
             break
-    # except EOFError as e:
-    #     pass
-    # except Exception as e:
-    #     print('Files Connection Error:', e)
-    # finally:
+        
     del ADDRS[addr]
     conn.shutdown(socket.SHUT_RDWR)
     conn.close()
